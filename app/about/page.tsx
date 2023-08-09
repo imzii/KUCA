@@ -1,15 +1,17 @@
 import styles from './page.module.css'
-import Banner from '../../public/banner1.jpg'
+import Banner from '../../public/banner.jpg'
 import Image from 'next/image'
 export default function About() {
   return (
-    <div className={styles.main}>
-      <Image
-        alt=''
-        src={Banner}
-        layout="responsive"
-      />
-      <h3>About</h3>
+    <div>
+      <div className={styles.container}>
+        <Image
+          alt=''
+          src={Banner}
+          className={styles.banner}
+        />
+        <h3 className={styles.text}>한국대학생클래식기타연합회 소개</h3>
+      </div>
     </div>
   )
 }
