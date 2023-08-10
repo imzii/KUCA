@@ -11,6 +11,7 @@ export default function About() {
           className={styles.banner}
         />
         <h3 className={styles.text}>한국대학생클래식기타연합회 소개</h3>
+        한국대학생클래식기타연합회 소개
       </div>
     </div>
   )
