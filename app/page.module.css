@@ -25,6 +25,29 @@
   font-family: 'Pacifico';
 }
 
+.prevButton {
+  position: absolute;
+  left: 10%;
+  color: white;
+}
+
+.nextButton {
+  position: absolute;
+  right: 10%;
+  color: white;
+}
+
+.dots {
+  position: absolute;
+  bottom: 10%;
+  color: white;
+}
+
+.dot {
+  float: left;
+  margin: 0 10px;
+}
+
 .text p:nth-child(1) {
   font-size: 5rem;
   font-family: 'Pacifico';
