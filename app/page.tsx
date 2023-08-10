@@ -10,6 +10,17 @@ export default function Home() {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
+    }, 7000);
+
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
+
+
   const prevSlide = () => {
     const isFirstSlide = currentIndex === 0;
     const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;

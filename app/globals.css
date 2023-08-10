@@ -1,5 +1,12 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.7/dist/web/variable/pretendardvariable.css");
 @import url("//fonts.googleapis.com/css?family=Pacifico");
+@font-face {
+  font-family: 'Cafe24ClassicType-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Cafe24ClassicType-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 * {
   box-sizing: border-box;
@@ -52,4 +59,18 @@ ul {
 ul li {
   float: left;
   margin: 0 20px;
+}
+
+main {
+  padding: 50px 15%;
+}
+
+main h1 {
+  font-size: 2rem;
+  margin: 40px 0;
+}
+
+main p {
+  font-size: 1.2rem;
+  line-height: 160%;
 }
