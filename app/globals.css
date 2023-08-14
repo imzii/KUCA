@@ -30,12 +30,12 @@ header {
   background-color: transparent;
 }
 
-header > div {
+header div.logo {
   display: flex;
   align-items: center;
 }
 
-header > div > div {
+header div.logo > div {
   padding-left: 10px;
   display: flex;
   flex-direction: column;

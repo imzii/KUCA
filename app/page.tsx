@@ -3,10 +3,11 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 import { useEffect, useState } from 'react';
+import Slider from './components/Slider';
 
 export default function Home() {
   
-  let slides: {url: string}[] = [{url: '/42.jpg'}, {url: '/41.jpg'},];
+  let slides: string[] = ['/42.jpg', '/41.jpg',];
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -39,25 +40,13 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      <Image
-        fill
-        alt=''
-        src={slides[currentIndex].url}
-        className={styles.background}
-      />
+      <div onClick={ prevSlide } className={styles.prevButton}>&lt;</div>
+      <div onClick={ nextSlide } className={styles.nextButton}>&gt;</div>
+      <Slider images={slides} />
       <h3 className={styles.text}>
         <p>welcome to</p>
         <p>KUCA!</p>
       </h3>
-      <div onClick={ prevSlide } className={styles.prevButton}>&lt;</div>
-      <div onClick={ nextSlide } className={styles.nextButton}>&gt;</div>
-      <div className={styles.dots}>
-        {slides.map((slide, slideIndex) => (
-          <div key={slideIndex} onClick={ () => goToSlide(slideIndex)} className={styles.dot}>
-            ●
-          </div>
-        ))}
-      </div>
     </div>
   )
 }

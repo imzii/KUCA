@@ -20,22 +20,24 @@ export default function RootLayout({
     <html lang="ko">
       <body>
         <header style={{ color: isHomePage ? 'white' : 'black' }}>
-          <div>
-            <Image
-              src={isHomePage ? whiteLogo : blackLogo}
-              alt=''
-              width='60'
-              height='60'
-            />
-            <div>
-              <h1>
-                한국대학생클래식기타연합회
-              </h1>
-              <h2>
-                Korea Univ. Classical Guitar Association
-              </h2>
+          <Link href='/'>
+            <div className='logo'>
+              <Image
+                src={isHomePage ? whiteLogo : blackLogo}
+                alt=''
+                width='60'
+                height='60'
+              />
+              <div>
+                <h1>
+                  한국대학생클래식기타연합회
+                </h1>
+                <h2>
+                  Korea Univ. Classical Guitar Association
+                </h2>
+              </div>
             </div>
-          </div>
+          </Link>
           <ul>
             <li>
               <Link href='/'>홈</Link>
