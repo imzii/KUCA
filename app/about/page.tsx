@@ -1,5 +1,5 @@
 import styles from './page.module.css'
-import Banner from '../../public/banner.jpg'
+import Banner from '../components/Banner'
 import Image from 'next/image'
 
 type UniversityClub = {
@@ -11,16 +11,7 @@ export default function About() {
   const clubs:UniversityClub[] = require('/public/data/clubs.json');
   return (
     <div>
-      <div>
-        <div className={styles.container}>
-          <Image
-            alt=''
-            src={Banner}
-            className={styles.banner}
-          />
-          <h3 className={styles.text}>한국대학생클래식기타연합회 소개</h3>
-        </div>
-      </div>
+      <Banner imageNum={1} text='한국대학생클래식기타연합회 소개' />
       <main>
         <h1>한국대학생클래식기타연합회 KUCA</h1>
         <p>
@@ -32,12 +23,18 @@ export default function About() {
         <p>
           아래 목록에 있는 학교 동아리에 가입된 회원의 경우, 누구나 한국대학생클래식기타연합회의 준회원~합주단원으로 활동하실 수 있습니다.
         </p>
-        <table>
+        <table style={{ border: '1px solid black', margin: '30px 0' }}>
+          <thead>
+            <tr>
+              <th style={{ padding: '10px' }}>학교명</th>
+              <th style={{ padding: '10px' }}>동아리명</th>
+            </tr>
+          </thead>
           <tbody>
             {clubs.map(item => (
               <tr key={item.university}>
-                <td>{item.university}</td>
-                <td>{item.club}</td>
+                <td style={{ padding: '10px' }}>{item.university}</td>
+                <td style={{ padding: '10px' }}>{item.club}</td>
               </tr>
             ))}
           </tbody>

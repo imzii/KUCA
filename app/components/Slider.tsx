@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 interface SliderProps {
-  images: string[];
+  images: string[],
 }
 
-const Slider: React.FC<SliderProps> = ({ images }) => {
+export default function Slider({ images }: SliderProps )  {
   const [current, setCurrent] = useState<number>(0);
 
   useEffect(() => {
@@ -60,5 +60,3 @@ const Slider: React.FC<SliderProps> = ({ images }) => {
     </div>
   );
 };
-
-export default Slider;
