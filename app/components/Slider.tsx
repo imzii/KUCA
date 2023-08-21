@@ -1,62 +1,34 @@
+// src/components/ImageSlider.tsx
 import React, { useState, useEffect } from 'react';
+import styles from './Slider.module.css';
 
-interface SliderProps {
+interface ImageSliderProps {
   images: string[],
 }
 
-export default function Slider({ images }: SliderProps )  {
-  const [current, setCurrent] = useState<number>(0);
+export default function Slider({ images }: ImageSliderProps ) {
+  const [currentIndex, setCurrentIndex] = useState(1);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
-    }, 5000);
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 10000);
 
-    return () => clearInterval(interval);
-  }, [images]);
-
-  const getSlideStyle = (index: number) => {
-    let position;
-    if (index === current) {
-      position = '0%';
-    } else if ((index - 1) % images.length === current) {
-      position = '-100%';
-    } else {
-      position = '100%';
-    }
-    return {
-      backgroundImage: `url(${images[index]})`,
-      left: position
+    return () => {
+      clearInterval(timer);
     };
-  };
+  }, [images.length]);
 
   return (
-    <div className="slider">
+    <div className={styles.imageSlider}>
       {images.map((image, index) => (
-        <div
+        <img
           key={index}
-          className="slide"
-          style={getSlideStyle(index)}
-        ></div>
+          src={image}
+          alt={`Slide ${index}`}
+          className={`${styles.slide} ${index === currentIndex ? styles.active : ''}`}
+        />
       ))}
-      <style jsx>{`
-        .slider {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          overflow: hidden;
-          filter: brightness(0.3);
-        }
-        .slide {
-          position: absolute;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          background-size: cover;
-          background-position: center;
-          transition: left 2s;
-        }
-      `}</style>
     </div>
   );
 };
