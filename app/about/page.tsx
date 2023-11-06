@@ -15,7 +15,7 @@ export default function About() {
       <main>
         <h1>한국대학생클래식기타연합회 KUCA</h1>
         <p>
-          한국대학생클래식기타연합회 Korea Univ.Classical guitar Association은 1979년 창립 이후 38개 학교, 45개 동아리가 가입되어 있습니다.<br/>
+          한국대학생클래식기타연합회 Korea Univ. Classical guitar Association은 1979년 창립 이후 38개 학교, 45개 동아리가 가입되어 있습니다.<br/>
           지역 차로 인한 활동 한계로 인하여 부산경남클래식기타연맹이 따로 생긴 이래로 조직명칭은 그대로 유지하되, 이에 덧붙여<br/>
           한국대학생클래식기타연합회(서울경인지역)이란 명칭을 사용하고 있습니다.<br/><br/>
         </p>
@@ -28,15 +28,43 @@ export default function About() {
             <tr>
               <th style={{ padding: '10px' }}>학교명</th>
               <th style={{ padding: '10px' }}>동아리명</th>
+              <th style={{ padding: '10px' }}>학교명</th>
+              <th style={{ padding: '10px' }}>동아리명</th>
+              <th style={{ padding: '10px' }}>학교명</th>
+              <th style={{ padding: '10px' }}>동아리명</th>
             </tr>
           </thead>
           <tbody>
-            {clubs.map(item => (
-              <tr key={item.university}>
-                <td style={{ padding: '10px' }}>{item.university}</td>
-                <td style={{ padding: '10px' }}>{item.club}</td>
-              </tr>
-            ))}
+            {clubs.map((item, index) => {
+              if (index % 3 === 0) {
+                const item1 = clubs[index];
+                const item2 = clubs[index + 1];
+                const item3 = clubs[index + 2];
+                return (
+                  <tr key={index}>
+                    <td style={{ padding: '10px' }}>{item1 && item1.university}</td>
+                    <td style={{ padding: '10px' }}>
+                      {item1 && item1.club.split('/').map((club, i) => (
+                        <div key={i}>{club}</div>
+                      ))}
+                    </td>
+                    <td style={{ padding: '10px' }}>{item2 && item2.university}</td>
+                    <td style={{ padding: '10px' }}>
+                      {item2 && item2.club.split('/').map((club, i) => (
+                        <div key={i}>{club}</div>
+                      ))}
+                    </td>
+                    <td style={{ padding: '10px' }}>{item3 && item3.university}</td>
+                    <td style={{ padding: '10px' }}>
+                      {item3 && item3.club.split('/').map((club, i) => (
+                        <div key={i}>{club}</div>
+                      ))}
+                    </td>
+                  </tr>
+                );
+              }
+              return null;
+            })}
           </tbody>
         </table>
       </main>
