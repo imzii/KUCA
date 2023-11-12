@@ -25,8 +25,8 @@ export default function RootLayout({
               <Image
                 src={isHomePage ? whiteLogo : blackLogo}
                 alt=''
-                width='60'
-                height='60'
+                width='50'
+                height='50'
               />
               <div>
                 <h1>
